@@ -1,0 +1,81 @@
+<div id = "container">
+{{namePlusDays}}
+<hr>
+<ul class="list-inline" id ="addHuman">
+<li>
+<h6>Enter Project name</h6>
+<input type="text" name = "name" [(ngModel)] ="name" />
+</li>
+<li>
+<h6>Enter Days</h6>
+<input type="number" min="1" max="100" name = "Days" [(ngModel)] ="days" />
+</li>
+<li>
+<h6>Enter some Desc</h6>
+<input type="text" name = "desc" [(ngModel)] ="desc" />
+</li>
+<li>
+<button (click)="addHuman()">Add a Project</button>
+</li>
+</ul>
+</div>
+<!--
+ <div class="humans">
+ <li *ngFor="let human of humans">{{human.name}} {{human.age}} {{human.desc}}
+ <button (click)="removeHuman(human._id)">Delete human</button>
+</li>
+ </div>
+ -->
+
+ <table class="table table-responsive table-bordered table-hover">
+        <thead  >
+            <tr class="active">
+                <th>Row</th>
+                <th>Project Name</th>
+                <th>Days</th>
+                <th>Project Desc</th>
+                <th>controls</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  class="info"  *ngFor="let human of humans;let i = index">
+                <td class="sno" >{{i+1}}</td>
+                <td   class="name" *ngIf="human._id === editRowId">
+                  <textarea type="text" [(ngModel)]="human.name" ></textarea>
+                 </td>
+                  <td class="name" *ngIf="human._id !== editRowId" (click)="toggle(human._id)"  >
+                    {{human.name}}
+                    </td>
+                     <td   class="days" *ngIf="human._id === editRowId">
+                  <textarea type="text" [(ngModel)]="human.days" ></textarea>
+                 </td>
+                  <td class="days" *ngIf="human._id !== editRowId" (click)="toggle(human._id)"  >
+                    {{human.days}}
+                    </td>
+                      <td   class="desc" *ngIf="human._id === editRowId">
+                  <textarea type="text" [(ngModel)]="human.desc" ></textarea>
+                 </td>
+                  <td class="desc" *ngIf="human._id !== editRowId" (click)="toggle(human._id)"  >
+                    {{human.desc}}
+                    </td>
+              
+             
+                 <td class=" col-md-2 controls input-group" >
+                    
+                     <button  class = "btn btn-danger" *ngIf="human._id !== editRowId" (click)="removeHuman(human._id)"  >
+                        <i class="fa fa-trash-o fa-lg"></i> 
+                     </button>
+                     <button  class = "btn btn-primary" *ngIf="human._id !== editRowId" (click)="editHuman(human._id)"  >
+                        <i class="fa fa-pencil fa-lw"></i> 
+                     </button>
+                    <button class = " btn btn-success" *ngIf="human._id === editRowId">
+                         <i   class="fa fa-floppy-o fa-lg" aria-hidden="true" (click)="saveHuman(human._id)"></i>
+                    </button>
+                    
+                    </td>
+                    
+            </tr>           
+        </tbody>
+    </table>
+
+

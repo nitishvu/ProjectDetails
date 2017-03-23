@@ -1,0 +1,18 @@
+    <td class="sno" >{{i+1}}</td>
+    <td   class="name" *ngIf="human._id === editRowId">
+        <textarea type="text" [(ngModel)]="human.name" ></textarea>
+    </td>
+    <td class="name" *ngIf="human._id !== editRowId" (click)="toggle(human._id)"  >
+    {{human.name}}
+  </td>
+<td class="age" >{{human.age}}</td>
+<td  class="desc" > {{human.desc}}</td>
+<td class="col-md-1" >
+    <span id='clickableAwesomeFont' (click)="this.humanComponent.removeHuman(human._id)" >
+     <i class="fa fa-trash-o fa-lg"></i>
+    </span> 
+    <span id='clickableAwesomeFont' (click)="this.humanComponent.editHuman(human._id)"  >
+     <i class="fa fa-pencil fa-fw"></i> 
+    </span> 
+    <i  id='clickableAwesomeFont' class="fa fa-floppy-o" aria-hidden="true" (click)="this.humanComponent.saveHuman(human._id)"></i>
+</td>
