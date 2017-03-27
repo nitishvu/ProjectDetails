@@ -21,23 +21,23 @@ var HumanService = (function () {
         //   console.log("inside human service"+ human);
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/api/human", JSON.stringify(human), { headers: headers })
+        return this.http.post("/api/project", JSON.stringify(human), { headers: headers })
             .map(function (response) { return response.json(); });
     };
     HumanService.prototype.updateHuman = function (human) {
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/api/updateHuman", JSON.stringify(human), { headers: headers })
+        return this.http.post("/api/updateProject", JSON.stringify(human), { headers: headers })
             .map(function (response) { return response.json(); });
     };
     HumanService.prototype.getHumans = function () {
         // var headers = new Headers();
         //  headers.append('Content-Type','application/json');
-        return this.http.get("/api/human")
+        return this.http.get("/api/project")
             .map(function (response) { return response.json(); });
     };
     HumanService.prototype.removeHuman = function (id) {
-        return this.http.delete("/api/human/" + id)
+        return this.http.delete("/api/project/" + id)
             .map(function (response) { return response.json(); });
     };
     return HumanService;

@@ -2,14 +2,14 @@ var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
 
-var HumanSchema = new  schema({
+var ProjectSchema = new  schema({
 
     name:String,
     days:Number,
     desc:String
-}, { collection: 'human' });
+}, { collection: 'projectdata' });
 
 
-var Model  = mongoose.model('Human',HumanSchema);
+var Model  = mongoose.model('Project',ProjectSchema);
 
 module.exports = Model; 

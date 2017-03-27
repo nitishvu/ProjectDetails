@@ -16,28 +16,28 @@ export class HumanService {
         //   console.log("inside human service"+ human);
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/api/human", JSON.stringify(human), { headers: headers })
+        return this.http.post("/api/project", JSON.stringify(human), { headers: headers })
             .map(response => response.json());
 
     }
     updateHuman(human){
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("/api/updateHuman", JSON.stringify(human), { headers: headers })
+        return this.http.post("/api/updateProject", JSON.stringify(human), { headers: headers })
             .map(response => response.json());
     }
 
     getHumans() {
         // var headers = new Headers();
         //  headers.append('Content-Type','application/json');
-        return this.http.get("/api/human")
+        return this.http.get("/api/project")
             .map(response => response.json());
           
 
     }
 
     removeHuman(id){
-        return this.http.delete("/api/human/" + id)
+        return this.http.delete("/api/project/" + id)
         .map(response => response.json())
     }
 

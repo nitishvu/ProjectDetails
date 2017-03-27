@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var Model = require('../models/model');
 
-router.post('/human', function (req, res) {
+router.post('/project', function (req, res) {
 
-    var human = new Model(req.body);
+    var project = new Model(req.body);
 
-    human.save(function (err, resource) {
+    project.save(function (err, resource) {
         if (err) {
             res.send(err).status(501);
         } else {
@@ -15,8 +15,8 @@ router.post('/human', function (req, res) {
     });
 });
 
-router.post('/updateHuman', function (req, res) {
-        console.log('inside updateHuman');
+router.post('/updateProject', function (req, res) {
+        console.log('inside updateProject');
         console.log(req.body);
          var id = req.body._id;
          console.log('id='+id);
@@ -34,7 +34,7 @@ router.post('/updateHuman', function (req, res) {
 
 
 
-router.get('/human', function (req, res) {
+router.get('/project', function (req, res) {
     Model.find({}, function (err, resources) {
         if (err) {
             res.send(err).status(404);
@@ -47,7 +47,7 @@ router.get('/human', function (req, res) {
 
 });
 
-router.delete('/human/:id', function (req, res) {
+router.delete('/project/:id', function (req, res) {
     console.log('body');
     console.log(req.params.id);
     var id = req.params.id;

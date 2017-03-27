@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var mainRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
 const PORT = 8000 || process.env.PORT;
-var DB = "mongodb://localhost/angularHuman";
+var DB = "mongodb://localhost/projectdetails";
 var app = express();
 mongoose.connect(DB, function (err) {
     if (err) {
