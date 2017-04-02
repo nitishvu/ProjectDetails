@@ -36,7 +36,9 @@ Pre requisites:
 	Make sure mongo dB server is running on standard port 27017
 	Node js version 6.9 or above is installed 
 
+->run "npm install" command in both project root folder "ProjectTracking" and in "client" folder
 ->Go to project root folder "ProjectTracking" and execute below command
+
 $node server.js
 Listening on port 8000
 successfully connected tomongodb://localhost/projectdetails
